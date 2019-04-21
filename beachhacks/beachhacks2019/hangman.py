@@ -37,7 +37,6 @@ def matching_word(user_input, key_word):
 
         return user_input == -1
 
-
 def hangman_menu():
     pass
 
