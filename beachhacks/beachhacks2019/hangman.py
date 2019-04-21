@@ -13,7 +13,6 @@ def main():
             print("Goodbye")
             break
         user_input = -1
-    pass
 
 def print_menu():
     print("Main Menu")
@@ -57,8 +56,15 @@ def get_user_character():
         return user_guess
 
 def list_modifier(index, user_input):
+                   
+    
+    length_list = len(list)
 
-    pass
+    for i in range(length_list - 1):
+        underscore_list.insert(list[i], list[-1])
+        underscore_list.pop(list[i] + 1)
+                   
+    return underscore_list
 
 
 def hangman_menu():
@@ -77,10 +83,10 @@ def hangman_menu():
         else:
             character_list = list_modifier(index, user_input)
             print_word(character_list)
-    pass
 
 def print_word():
-    pass
+    print(underscore_list)
+
+    # prints out blanks and the letters that were found
         
         
-print(word_generator())
