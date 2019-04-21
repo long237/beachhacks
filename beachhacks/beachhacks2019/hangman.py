@@ -26,6 +26,25 @@ def word_generator():
     key_word = random.choice(word_bank)
     return key_word
 
+
+def get_user_character():
+    pass
+
+def matching_word(user_input, key_word):
+    # holds the index of found letter in a list
+    index = []
+
+
+    if user_input in key_word:
+        for i in range(len(key_word)):
+            if key_word[i] == user_input:
+                index.append(i) 
+
+        return index
+    else:
+
+        return user_input == -1
+
 def list_maker(key_word):
     underscore_list = []
     for character in range(len(key_word)):
@@ -46,6 +65,7 @@ def matching_word(user_input):
 def list_modifier(index, user_input):
 
     pass
+
 
 def hangman_menu():
     lives = 6
