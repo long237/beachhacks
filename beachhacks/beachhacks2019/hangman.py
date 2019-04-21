@@ -26,10 +26,6 @@ def word_generator():
     key_word = random.choice(word_bank)
     return key_word
 
-
-def get_user_character():
-    pass
-
 def matching_word(user_input, key_word):
     # holds the index of found letter in a list
     index = []
@@ -57,10 +53,6 @@ def get_user_character():
         while len(user_guess) > 1:
             user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
         return user_guess
-
-def matching_word(user_input):
-
-    pass
 
 def list_modifier(index, user_input):
 
