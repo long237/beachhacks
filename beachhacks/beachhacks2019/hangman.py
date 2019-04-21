@@ -1,6 +1,7 @@
 #Hangman
 import random
 
+
 def main():
     user_input = -1
     while user_input != 2:
@@ -49,17 +50,17 @@ def list_maker(key_word):
     return underscore_list
 
 def get_user_character():
-    used_letters = []
-    user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
     
-    while len(user_guess) > 1 or (user_guess.isalpha() == False):
+    while (True):
         user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
+        
+        while len(user_guess) > 1 or (user_guess.isalpha() == False) or (user_guess in used_letters):
+            user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
         used_letters.append(user_guess)
-        if user_guess in user_guess:
-            print("This letter has been used already. Please try again.")
-            continue
-    print(used_letters)
-    return user_guess.lower()
+        print("used_letters:", used_letters)
+        return user_guess.lower()
+
+print(get_user_character())
 
 
 def list_modifier(index, user_input):
