@@ -1,4 +1,5 @@
 #Hangman
+import random
 
 def main():
     user_input = -1
@@ -12,23 +13,46 @@ def main():
             print("Goodbye")
             break
         user_input = -1
+    pass
 
 def print_menu():
     pass
 
 def word_generator():
-    pass
+    word_bank = []
+    for word in open("words_alpha.txt"):
+        word = word.strip()
+        word_bank.append(word)
+    key_word = random.choice(word_bank)
+    return key_word
 
-def get_user_chacter():
+def list_maker(key_word):
+    underscore_list = []
+    for character in range(len(key_word)):
+        underscore_list.append("_")
+    return underscore_list
+
+
+def get_user_character():
     pass
 
 def matching_word(user_input):
+
+    pass
+
+def list_modifier(index, user_input):
     pass
 
 def hangman_menu():
+    key_word = word_generator()
+    character_list = list_maker(key_word)
+    print_word(character_list)
+    user_input = get_user_character()
+    matching_word(user_input)
     pass
 
 def print_word():
     pass
         
         
+print(list_maker("unoutlawed"))
