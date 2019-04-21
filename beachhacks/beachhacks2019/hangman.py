@@ -19,10 +19,20 @@ def print_menu():
 def word_generator():
     pass
 
-def get_user_chacter():
+def get_user_character():
     pass
 
 def matching_word(user_input):
+
+    found = []
+
+    if user_input in word:
+        for i in range(len(sentence)):
+            if sentence[i] == user_input:
+                found.append(i)
+
+    else:
+        lives = lives - 1
     pass
 
 def hangman_menu():
