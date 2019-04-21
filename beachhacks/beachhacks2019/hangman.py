@@ -23,17 +23,18 @@ def get_user_character():
     pass
 
 def matching_word(user_input):
-
-    found = []
+    # holds the index of found letter in a list
+    foundIndex = []
 
     if user_input in word:
-        for i in range(len(sentence)):
-            if sentence[i] == user_input:
-                found.append(i)
-
+        for i in range(len(word)):
+            if word[i] == user_input:
+                foundIndex.append(i)
+    return foundIndex
     else:
         lives = lives - 1
-    pass
+        return user_input == -1
+
 
 def hangman_menu():
     pass
