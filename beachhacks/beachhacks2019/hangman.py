@@ -78,16 +78,21 @@ def hangman_menu():
     while lives > 0 and ("_"  in character_list):
 
         user_input = get_user_character()
-        print(user_input)   # fixme
         index = matching_word(user_input, key_word)
-        print(index) #fixme
+
         if index == -1:
             lives = lives -1
             print("remaining lives:", lives)
         else:
             character_list = list_modifier(character_list,index, user_input)
             print_word(character_list)
-
+    if lives == 0:
+        print("You lost")
+        print("The word was:",key_word)
+        print('')
+    else:
+        print("You won")
+        print('')
 def print_word(underscore_list):
     for character in underscore_list:
         print(character, end= ' ')
@@ -97,7 +102,6 @@ def print_word(underscore_list):
         
 main()
 
-isalpha
 
 
 
