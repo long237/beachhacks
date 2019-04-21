@@ -41,14 +41,21 @@ def matching_word(user_input):
     pass
 
 def list_modifier(index, user_input):
+
     pass
 
 def hangman_menu():
+    lives = 6
     key_word = word_generator()
-    character_list = list_maker(key_word)
-    print_word(character_list)
-    user_input = get_user_character()
-    matching_word(user_input)
+    while lives > 0:
+        character_list = list_maker(key_word)
+        print_word(character_list)
+        user_input = get_user_character()
+        index = matching_word(user_input)
+        if index == -1:
+            lives = lives -1
+        character_list = list_modifier(index, user_input)
+        print_word(character_list)
     pass
 
 def print_word():
