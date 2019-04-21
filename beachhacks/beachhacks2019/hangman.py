@@ -48,18 +48,17 @@ def list_maker(key_word):
         underscore_list.append("_")
     return underscore_list
 
-def get_user_character():
-    used_letters = []
-    user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
-    
-    while len(user_guess) > 1 or (user_guess.isalpha() == False):
+def get_user_character(used_letters):
+    user_guess = ''
+    while len(user_guess) > 1 or user_guess in used_letters or (user_guess.isalpha() == False):
         user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
-        used_letters.append(user_guess)
-        if user_guess in user_guess:
-            print("This letter has been used already. Please try again.")
-            continue
-    print(used_letters)
-    return user_guess.lower()
+        user_guess = user_guess.lower()
+        #if user_guess in used_letters:
+         #   print("This letter has been used already. Please try again.")
+        #used_letters.append(user_guess)
+
+   # print("Used letters:",used_letters)
+    return user_guess
 
 
 def list_modifier(underscore_list,list_index, user_input):
@@ -76,19 +75,24 @@ def list_modifier(underscore_list,list_index, user_input):
 
 def hangman_menu():
     lives = 6
+    used_letters = []
     # get the key word
     key_word = word_generator()
-    print(key_word)
     # As long as the user has more than 0 lives, keep running.
     character_list = list_maker(key_word)
     print_word(character_list)
     while lives > 0 and ("_"  in character_list):
+        user_input = get_user_character(used_letters)
+        used_letters.append(user_input)
+        print("Letter guessed:",used_letters)
+        #if user_input in used_letters:
+         #   continue
 
-        user_input = get_user_character()
         index = matching_word(user_input, key_word)
 
         if index == -1:
             lives = lives -1
+            print_word(character_list)
             print("remaining lives:", lives)
         else:
             character_list = list_modifier(character_list,index, user_input)
@@ -108,7 +112,6 @@ def print_word(underscore_list):
     # prints out blanks and the letters that were found
         
 main()
-
 
 
 
