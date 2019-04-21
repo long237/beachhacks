@@ -16,7 +16,8 @@ def main():
     pass
 
 def print_menu():
-    pass
+    print('1. Play')
+    print('2. Quit')
 
 def word_generator():
     word_bank = []
@@ -34,6 +35,7 @@ def list_maker(key_word):
 
 
 def get_user_character():
+    choice = input('enter a letter: 
     pass
 
 def matching_word(user_input):
@@ -41,10 +43,20 @@ def matching_word(user_input):
     pass
 
 def list_modifier(index, user_input):
-    pass
+                   
+    
+    length_list = len(list)
 
+    for i in range(length_list - 1):
+        underscore_list.insert(list[i], list[-1])
+        underscore_list.pop(list[i] + 1)
+                   
+    return underscore_list
+
+                   
 def hangman_menu():
     key_word = word_generator()
+    # add while loop count < 6:
     character_list = list_maker(key_word)
     print_word(character_list)
     user_input = get_user_character()
@@ -52,7 +64,9 @@ def hangman_menu():
     pass
 
 def print_word():
+    print(underscore_list)
     pass
-        
+
+    # prints out blanks and the letters that were found
         
 print(list_maker("unoutlawed"))
