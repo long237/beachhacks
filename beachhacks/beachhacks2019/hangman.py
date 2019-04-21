@@ -40,7 +40,7 @@ def matching_word(user_input, key_word):
         return index
     else:
 
-        return user_input == -1
+        return -1
 
 def list_maker(key_word):
     underscore_list = []
@@ -51,18 +51,18 @@ def list_maker(key_word):
 
 def get_user_character():
     user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
-        while len(user_guess) > 1:
-            user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
-        return user_guess
+    while len(user_guess) > 1:
+        user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
+    return user_guess
 
-def list_modifier(index, user_input):
+def list_modifier(underscore_list,list_index, user_input):
                    
     
-    length_list = len(list)
+    length_list = len(list_index)
 
-    for i in range(length_list - 1):
-        underscore_list.insert(list[i], list[-1])
-        underscore_list.pop(list[i] + 1)
+    for i in range(length_list):
+        underscore_list.insert(list_index[i], user_input)
+        underscore_list.pop(list_index[i] + 1)
                    
     return underscore_list
 
@@ -71,22 +71,39 @@ def hangman_menu():
     lives = 6
     # get the key word
     key_word = word_generator()
+    print(key_word)
     # As long as the user has more than 0 lives, keep running.
+    character_list = list_maker(key_word)
+    print_word(character_list)
     while lives > 0 and ("_"  in character_list):
-        character_list = list_maker(key_word)
-        print_word(character_list)
+
         user_input = get_user_character()
-        index = matching_word(index, user_input)
+        print(user_input)   # fixme
+        index = matching_word(user_input, key_word)
+        print(index) #fixme
         if index == -1:
             lives = lives -1
-            print_hangman()
+            print("remaining lives:", lives)
         else:
-            character_list = list_modifier(index, user_input)
+            character_list = list_modifier(character_list,index, user_input)
             print_word(character_list)
 
-def print_word():
-    print(underscore_list)
+def print_word(underscore_list):
+    for character in underscore_list:
+        print(character, end= ' ')
+    print('')
 
     # prints out blanks and the letters that were found
         
-        
+main()
+
+isalpha
+
+
+
+
+
+
+
+
+
