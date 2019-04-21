@@ -34,7 +34,10 @@ def list_maker(key_word):
 
 
 def get_user_character():
-    pass
+    user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
+        while len(user_guess) > 1:
+            user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
+        return user_guess
 
 def matching_word(user_input):
 
