@@ -22,18 +22,15 @@ def word_generator():
 def get_user_character():
     pass
 
-def matching_word(user_input, keyWord):
+def matching_word(user_input, key_word):
     # holds the index of found letter in a list
     index = []
 
 
-    if user_input in keyWord:
-        for i in range(len(keyWord)):
-            if keyWord[i] == user_input:
+    if user_input in key_word:
+        for i in range(len(key_word)):
+            if key_word[i] == user_input:
                 index.append(i)
-        for item in foundIndex:
-            temp = index[item]
-            
 
         return index
     else:
