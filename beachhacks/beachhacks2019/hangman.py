@@ -24,18 +24,18 @@ def get_user_character():
 
 def matching_word(user_input):
     # holds the index of found letter in a list
-    foundIndex = []
-    found = []
+    index = []
+
 
     if user_input in word:
         for i in range(len(word)):
             if word[i] == user_input:
-                foundIndex.append(i)
+                index.append(i)
         for item in foundIndex:
-            temp = foundIndex[item]
+            temp = index[item]
             found[temp] = user_input
 
-        return found
+        return index
     else:
 
         return user_input == -1
