@@ -48,12 +48,19 @@ def list_maker(key_word):
         underscore_list.append("_")
     return underscore_list
 
-
 def get_user_character():
+    used_letters = []
     user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
-        while len(user_guess) > 1:
-            user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
-        return user_guess
+    
+    while len(user_guess) > 1 or (user_guess.isalpha() == False):
+        user_guess = input("Please enter a single lowercase letter. (Ex: a): ")
+        used_letters.append(user_guess)
+        if user_guess in user_guess:
+            print("This letter has been used already. Please try again.")
+            continue
+    print(used_letters)
+    return user_guess.lower()
+
 
 def list_modifier(index, user_input):
                    
