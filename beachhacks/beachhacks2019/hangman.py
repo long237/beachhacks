@@ -46,20 +46,24 @@ def list_modifier(index, user_input):
 
 def hangman_menu():
     lives = 6
+    # get the key word
     key_word = word_generator()
-    while lives > 0:
+    # As long as the user has more than 0 lives, keep running.
+    while lives > 0 and ("_"  in character_list):
         character_list = list_maker(key_word)
         print_word(character_list)
         user_input = get_user_character()
-        index = matching_word(user_input)
+        index = matching_word(index, user_input)
         if index == -1:
             lives = lives -1
-        character_list = list_modifier(index, user_input)
-        print_word(character_list)
+            print_hangman()
+        else:
+            character_list = list_modifier(index, user_input)
+            print_word(character_list)
     pass
 
 def print_word():
     pass
         
         
-print(list_maker("unoutlawed"))
+print(word_generator())
