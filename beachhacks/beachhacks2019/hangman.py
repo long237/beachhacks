@@ -30,7 +30,7 @@ def matching_word(user_input, key_word):
     if user_input in key_word:
         for i in range(len(key_word)):
             if key_word[i] == user_input:
-                index.append(i)
+                index.append(i) 
 
         return index
     else:
