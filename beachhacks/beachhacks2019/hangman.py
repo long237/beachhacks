@@ -16,7 +16,9 @@ def main():
     pass
 
 def print_menu():
-    pass
+    print("Main Menu")
+    print("1. Play Hangman")
+    print("2. Quit")
 
 def word_generator():
     word_bank = []
